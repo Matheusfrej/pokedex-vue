@@ -5,7 +5,7 @@
       <h3>Pokedex</h3>
     </div>
     <h2>Make your Pokémon Team!</h2>
-    <h3 class="vue-text">Feito com <a href="https://vuejs.org/" target="_blank">Vue.js</a></h3>
+    <h3 class="vue-text">Made with <a href="https://vuejs.org/" target="_blank">Vue.js</a></h3>
   </header>
 </template>
 

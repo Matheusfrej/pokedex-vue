@@ -86,7 +86,7 @@
 
 body {
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--color-background-mute);
   -webkit-font-smoothing: antialiased;
 }
 

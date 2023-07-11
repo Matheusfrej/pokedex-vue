@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <main class="content-container">
-      <h1>HomePage</h1>
+      <MyTeam />
       <div v-for="(card, idx) in cards" :key="idx">
         <PokemonCard  />
       </div>
     </main>
-  </div>
-  
-  
+  </div>  
 </template>
 
 <script>
 import PokemonCard from '../components/PokemonCard.vue';
+import MyTeam from '../components/MyTeam.vue';
+
   export default {
     name: "HomePage",
     data() {
@@ -20,7 +20,7 @@ import PokemonCard from '../components/PokemonCard.vue';
             cards: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         };
     },
-    components: { PokemonCard }
+    components: { PokemonCard, MyTeam }
 }
 
   
