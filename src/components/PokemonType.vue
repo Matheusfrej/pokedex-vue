@@ -9,9 +9,6 @@
       type: String,
     },
 
-    data() {
-
-    },
     computed: {
       classes() {
         return ['type', this.type.toLowerCase()]
