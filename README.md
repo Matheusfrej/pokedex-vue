@@ -1,35 +1,26 @@
-# pokedex-team
+# Pokedex Team
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descrição do Projeto
 
-## Recommended IDE Setup
+O projeto consiste em uma pokedex, que é uma listagem com todos os pokemons que existem, e um time com 6 pokemons que você pode fazer.
+Você seleciona diretamente os pokemons da pokedex para adicionar ao seu time, além de poder modificar seu time, deletando e adicionando outros pokemons. Utilizei esse projeto para praticar Vue.js.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Instalação e Uso
 
-## Customize configuration
+Para instalar e usar o projeto, siga as etapas abaixo:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone o repositório do GitHub
+2. Instale as dependências necessárias usando **npm install**
+3. Execute a aplicação usando **npm run dev**
 
-## Project Setup
+## Imagens
 
-```sh
-npm install
-```
+![pokedex1](https://github.com/Matheusfrej/pokedex-vue/assets/61998444/536d64c6-6049-4a9f-a4df-d2f40b8401e6)
 
-### Compile and Hot-Reload for Development
+![pokedex2](https://github.com/Matheusfrej/pokedex-vue/assets/61998444/96494069-26ae-4395-8caf-3ef59803551d)
 
-```sh
-npm run dev
-```
+![pokedex3](https://github.com/Matheusfrej/pokedex-vue/assets/61998444/54c5e962-c4fd-4e4d-af66-8172f42b6c45)
 
-### Compile and Minify for Production
+![pokedex4](https://github.com/Matheusfrej/pokedex-vue/assets/61998444/a263cfaa-134d-4104-84db-85ce01d5da7c)
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+![pokedex5](https://github.com/Matheusfrej/pokedex-vue/assets/61998444/35270e49-4017-40ae-a139-5a8e84b07f32)
