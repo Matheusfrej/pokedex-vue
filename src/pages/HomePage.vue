@@ -2,8 +2,9 @@
   <div class="container">
     <main class="content-container">
       <MyTeam />
-      <div v-for="(card, idx) in cards" :key="idx">
-        <PokemonCard  />
+      <h2>Pokedex</h2>
+      <div v-if="pokemons.length > 0" class="pokedex-container" >
+        <PokemonCard :pokemon="pokemon" v-for="(pokemon, idx) in pokemons" :key="idx" />
       </div>
     </main>
   </div>  
@@ -12,13 +13,39 @@
 <script>
 import PokemonCard from '../components/PokemonCard.vue';
 import MyTeam from '../components/MyTeam.vue';
+import axios from 'axios';
 
   export default {
     name: "HomePage",
     data() {
         return {
-            cards: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            pokemons: []
         };
+    },
+    created() {
+        this.fetchPokemonData();
+    },
+    methods: {
+        async fetchPokemonData() {
+            try {
+                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1010");
+                const requests = response.data.results.map((pokemon) => {
+                  return axios.get(pokemon.url) 
+                })
+                const responses = await axios.all(requests)
+                responses.map(response => response.data).forEach((pokemon) => {
+                  this.pokemons.push({
+                    id: pokemon.id,
+                    name: pokemon.name,
+                    image: pokemon.sprites.front_default,
+                    types: pokemon.types
+                });
+                })
+            }
+            catch (error) {
+                console.error(error);
+            }
+        }
     },
     components: { PokemonCard, MyTeam }
 }
@@ -36,5 +63,25 @@ import MyTeam from '../components/MyTeam.vue';
 
 .content-container {
   margin-top: 7rem;
+}
+
+h2 {
+  padding-left: 5rem;
+  margin-bottom: 2rem;
+}
+
+.pokedex-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: fit-content;
+  gap: 2rem;
+  margin: auto;
+  padding: 3rem;
+  background: var(--vt-c-blue-lighter);
+  margin-bottom: 5rem;
+  border-radius: 32px;
 }
 </style>

@@ -3,46 +3,23 @@
     <h2>My Team</h2>
     
     <div class="team-container">
-      <PokemonCard :pokemon="pokemon" />
-      <PokemonCard :pokemon="pokemon" />
-      <PokemonCard :pokemon="pokemon" />
-      <PokemonCard :pokemon="pokemon" />
-      <PokemonCard :pokemon="pokemon" />
-      <PokemonCard :pokemon="pokemon" />
+      <div v-for="(pokemon, idx) in pokemonTeam" :key="idx">
+        <PokemonCard :pokemon="pokemon" />
+      </div>
     </div>
-    
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import PokemonCard from './PokemonCard.vue';
 
   export default {
     data() {
         return {
-            pokemon: undefined
+            pokemonTeam: [null, null, null, null, null, null]
         };
     },
     created() {
-        this.fetchPokemonData();
-    },
-    methods: {
-        async fetchPokemonData() {
-            try {
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
-                const pokemonData = response.data;
-                console.log(pokemonData.types);
-                this.pokemon = {
-                    name: pokemonData.name,
-                    image: pokemonData.sprites.front_default,
-                    types: pokemonData.types
-                };
-            }
-            catch (error) {
-                console.error(error);
-            }
-        }
     },
     components: { PokemonCard }
 };
@@ -53,6 +30,17 @@ import PokemonCard from './PokemonCard.vue';
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.team-pokemon-container {
+  background: var(--color-background);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 150px;
 }
 
 h2 {
