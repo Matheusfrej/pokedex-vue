@@ -3,7 +3,7 @@
     <h2>My Team</h2>
     
     <div class="team-container">
-      <div v-for="(pokemon, idx) in pokemonTeam" :key="idx">
+      <div v-for="(pokemon, idx) in $store.state.team" :key="idx">
         <PokemonCard :pokemon="pokemon" />
       </div>
     </div>

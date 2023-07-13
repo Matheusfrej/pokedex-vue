@@ -8,7 +8,8 @@
           :in_pokedex="true" 
           :pokemon="pokemon" 
           v-for="(pokemon, idx) in pokemons" 
-          :key="idx" 
+          :key="idx"
+          @click="addPokemon(pokemon)"
         />
       </div>
     </main>
@@ -29,6 +30,7 @@ import axios from 'axios';
     },
     created() {
         this.fetchPokemonData();
+        console.log(this.$store.state.team);
     },
     methods: {
         async fetchPokemonData() {
@@ -50,6 +52,10 @@ import axios from 'axios';
             catch (error) {
                 console.error(error);
             }
+        },
+
+        addPokemon(pokemon) {
+          this.$store.commit('addPokemon', pokemon)
         }
     },
     components: { PokemonCard, MyTeam }

@@ -47,7 +47,7 @@ import PokemonType from './PokemonType.vue';
     
     methods: {
     handleMouseEnter() {
-      this.showPlus = true;
+      if (this.in_pokedex) this.showPlus = true;
     },
     handleMouseLeave() {
       this.showPlus = false;
