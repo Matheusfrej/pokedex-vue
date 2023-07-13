@@ -1,16 +1,18 @@
 <template>
   <div 
     v-if="pokemon" 
-    :class="cardClass" 
+    class="team-pokemon-container" 
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
+    @click="showSign = !showSign"
   > 
     <header>
       <strong>{{pokemon.name}}</strong>
       <span>#{{pokemon.id}}</span>
     </header>
     <img :src="pokemon.image" alt="">
-    <div v-show="showPlus" class="plus-sign">+</div>
+    <div v-show="showSign && in_pokedex" class="sign plus-sign">+</div>
+    <div v-show="showSign && !in_pokedex" class="sign cross-sign">x</div>
     <footer>
       <PokemonType v-for="type in pokemon.types" :key="type" :type="type.type.name" />
     </footer>
@@ -34,23 +36,16 @@ import PokemonType from './PokemonType.vue';
 
     data() {
       return {
-        showPlus: false
+        showSign: false
       }
-    },
-
-    computed: {
-      cardClass() {
-        if (this.in_pokedex) return ['team-pokemon-container', 'pokedex']
-        return ['team-pokemon-container', 'team']
-      },
     },
     
     methods: {
     handleMouseEnter() {
-      if (this.in_pokedex) this.showPlus = true;
+      this.showSign = true;
     },
     handleMouseLeave() {
-      this.showPlus = false;
+      this.showSign = false;
     },
   },
 
@@ -73,7 +68,7 @@ import PokemonType from './PokemonType.vue';
   max-height: 180px;
 }
 
-.pokedex:hover {
+.team-pokemon-container:hover {
   opacity: 0.4;
   cursor: pointer;
 }
@@ -108,15 +103,23 @@ import PokemonType from './PokemonType.vue';
   height: 100px;
 }
 
-.plus-sign {
+.sign {
   opacity: 2;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 7rem;
+}
+
+.plus-sign {
   color: var(--vt-c-blue-darker);
 }
+
+.cross-sign {
+  color: var(--vt-c-red-darker);
+}
+
 
 .team-pokemon-container footer {
   width: 100%;

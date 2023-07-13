@@ -30,7 +30,6 @@ import axios from 'axios';
     },
     created() {
         this.fetchPokemonData();
-        console.log(this.$store.state.team);
     },
     methods: {
         async fetchPokemonData() {
