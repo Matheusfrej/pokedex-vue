@@ -7,6 +7,9 @@ Você seleciona diretamente os pokemons da pokedex para adicionar ao seu time, a
 
 ## Instalação e Uso
 
+Para usar o projeto, você pode acessá-lo por essa url:
+https://pokedex-vue-matheusfrej.vercel.app/
+
 Para instalar e usar o projeto, siga as etapas abaixo:
 
 1. Clone o repositório do GitHub
