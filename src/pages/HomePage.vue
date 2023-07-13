@@ -3,8 +3,13 @@
     <main class="content-container">
       <MyTeam />
       <h2>Pokedex</h2>
-      <div v-if="pokemons.length > 0" class="pokedex-container" >
-        <PokemonCard :pokemon="pokemon" v-for="(pokemon, idx) in pokemons" :key="idx" />
+      <div v-if="pokemons.length > 0" class="pokedex-container">
+        <PokemonCard 
+          :in_pokedex="true" 
+          :pokemon="pokemon" 
+          v-for="(pokemon, idx) in pokemons" 
+          :key="idx" 
+        />
       </div>
     </main>
   </div>  
