@@ -15,6 +15,10 @@ export default createStore({
           break
         }
       }
+    },
+
+    deletePokemon(state, idx) {
+      state.team[idx] = null
     }
   },
   actions: {

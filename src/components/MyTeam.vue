@@ -4,7 +4,7 @@
     
     <div class="team-container">
       <div v-for="(pokemon, idx) in $store.state.team" :key="idx">
-        <PokemonCard :pokemon="pokemon" />
+        <PokemonCard :pokemon="pokemon" @click="deletePokemon(idx)" />
       </div>
     </div>
   </div>
@@ -19,8 +19,13 @@ import PokemonCard from './PokemonCard.vue';
             pokemonTeam: [null, null, null, null, null, null]
         };
     },
-    created() {
+    
+    methods: {
+      deletePokemon(idx) {
+        this.$store.commit('deletePokemon', idx)
+      }
     },
+
     components: { PokemonCard }
 };
 </script>
